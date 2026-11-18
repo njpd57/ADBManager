@@ -2,6 +2,9 @@
 
 Android device manager over adb (Python + Tkinter, no external dependencies). Sibling of ADBFinder.
 
+## Download
+Get the Windows executable from the [latest release](https://github.com/njpd57/ADBManager/releases/latest) (`ADBManager.exe`, no Python required).
+
 ## Requirements
 - Python 3.9+
 - `adb` (platform-tools), found in `PATH`, `C:\platform-tools` or `ADB_PATH`. `fastboot` is optional (`FASTBOOT_PATH`).
