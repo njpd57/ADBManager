@@ -3,7 +3,7 @@
 Android device manager over adb (Python + Tkinter, no external dependencies). Sibling of ADBFinder.
 
 ## Download
-Get the Windows executable from the [latest release](https://github.com/njpd57/ADBManager/releases/latest) (`ADBManager.exe`, no Python required).
+Get the Windows executable from the [latest release](https://github.com/njpd57/ADBManager/releases/latest) (`ADBManager-Setup-<version>.exe` installer or portable `ADBManager.exe`, no Python required).
 
 ## Requirements
 - Python 3.9+
@@ -12,7 +12,7 @@ Get the Windows executable from the [latest release](https://github.com/njpd57/A
 
 ## Usage
 ```
-python main.py
+python main.pyw
 ```
 Pick a device at the top, then use the tabs:
 
@@ -38,5 +38,9 @@ python -m unittest discover tests
 ## Package
 ```
 pip install pyinstaller
-pyinstaller --noconsole --onefile main.pyw
+pyinstaller --noconsole --onefile --name ADBManager main.pyw
+```
+To build the Windows installer (`dist\ADBManager-Setup-<version>.exe`), install [Inno Setup 6](https://jrsoftware.org/isinfo.php) and then run:
+```
+ISCC /DAppVersion=1.1.0 installer\ADBManager.iss
 ```
