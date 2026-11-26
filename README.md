@@ -38,5 +38,5 @@ python -m unittest discover tests
 ## Package
 ```
 pip install pyinstaller
-pyinstaller --noconsole --onefile main.py
+pyinstaller --noconsole --onefile main.pyw
 ```
