@@ -20,7 +20,7 @@ Pick a device at the top, then use the tabs:
 |---|---|
 | Device | Wi-Fi connect/pair/disconnect, enable TCP/IP, device info |
 | Apps | Sortable table with icon, real name, sizes (total/app/data/cache), install/update dates, installer, type and state (enabled/running); install APK / split folder / XAPK, uninstall, disable/enable, clear data, force-stop, launch, extract APK |
-| Capture | Screenshot and screen recording (pulled to the PC) |
+| Capture | Screenshot (saved to the PC or copied to the clipboard, Windows only) and screen recording (pulled to the PC) |
 | Shell & Logcat | One-shot shell with history, live logcat with level/tag/text filters, reboot (normal/recovery/bootloader/fastbootd/sideload) |
 | System | Live monitor (battery, RAM, network, top), processes, system properties |
 | Backup & Permissions | `adb backup`/`restore`, runtime permissions grant/revoke, sideload, basic fastboot |

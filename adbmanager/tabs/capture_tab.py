@@ -24,6 +24,8 @@ class CaptureTab(ttk.Frame):
         shot = ttk.LabelFrame(self, text="Screenshot", padding=8)
         shot.pack(fill="x", pady=10)
         ttk.Button(shot, text="Take screenshot", command=self.screenshot).pack(side="left")
+        ttk.Button(shot, text="Copy to clipboard", command=self.copy_screenshot).pack(
+            side="left", padx=6)
 
         rec = ttk.LabelFrame(self, text="Screen recording", padding=8)
         rec.pack(fill="x")
@@ -48,6 +50,12 @@ class CaptureTab(ttk.Frame):
         dest = self._target("png")
         self.app.call(lambda adb, serial: capture.screenshot(adb, serial, dest), self._saved,
                       "Taking screenshot...")
+
+    def copy_screenshot(self):
+        # No dialog on success: the status bar is enough and the user can paste right away.
+        self.app.call(capture.screenshot_to_clipboard,
+                      lambda _: self.app.status.set("Screenshot copied to clipboard"),
+                      "Copying screenshot...")
 
     def record(self):
         dest, seconds = self._target("mp4"), self.seconds.get()

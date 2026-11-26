@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import time
 
+from . import clipboard
 from .adb import Adb
 
 _REMOTE_DIR = "/sdcard"
@@ -20,6 +21,12 @@ def screenshot(adb: Adb, serial: str, dest_path: str) -> str:
     finally:
         adb.shell(serial, f"rm -f {remote}", check=False)
     return dest_path
+
+
+def screenshot_to_clipboard(adb: Adb, serial: str) -> None:
+    """Take a screenshot and copy it to the PC clipboard without saving it."""
+    # exec-out streams the raw PNG, so nothing is written on the device.
+    clipboard.copy_png(adb.run_bytes(["-s", serial, "exec-out", "screencap", "-p"]))
 
 
 def record(adb: Adb, serial: str, dest_path: str, seconds: int = 30) -> str:
